@@ -10,7 +10,7 @@ import utils
 app = Flask(__name__)
 app.secret_key = "i87e872bcfw6rv62efuv2b6"
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
-app.config["DEBUG"] = True
+app.config["DEBUG"] = False
 
 app.register_blueprint(login_route.home_route)
 app.register_blueprint(login_route.login_route)
