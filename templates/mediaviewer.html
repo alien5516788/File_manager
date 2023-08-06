@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta lang="en">
+
+<meta name="viewport" content="width: device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/css/font-awesome/css/all.css">
+
+<link rel="stylesheet" href="/static/css/ext.css">
+
+<link rel="stylesheet" href="/static/css/mediaviewer.css">
+
+<style>
+
+body{
+    margin: 0;
+    overflow: hidden;
+}
+
+.tabs{
+    width: 98vw;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #282828;
+    position: fixed;
+    bottom: 0;
+    margin: 0 1vw 0 1vw;
+}
+.tabs > button{
+    width: 50px;
+    background-color: #282828;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.tabs > button:hover{
+    color: #000000;
+    background-color: #ffebcd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page-mask"></div>
+
+<main>
+
+    <nav>
+        <button class="chng-vwr" id="img-vwr-btn"><img src="static/images/image-viewer.png"></button>
+        <button class="chng-vwr" id="ad-plyr-btn"><img src="static/images/audio-player.png"></button>
+        <button class="chng-vwr" id="vd-plyr-btn"><img src="static/images/video-player.png"></button>
+        <button class="chng-vwr" id="txt-edtr-btn"><img src="static/images/text-editor.png"></button>
+    </nav>
+
+    <div class="vwr img-vwr">
+
+        <h3>No media</h3>
+        
+        <div class="scrn img-scrn">
+
+            <img class="tmp-img" src="static/images/open-image.jpg">
+
+            <img id="image" src="">
+
+        </div>
+
+        <div class="cntrls img-cntrls">
+            <button class="fa-solid fa-arrow-up-right-from-square cntrl-btns" id="img-fl-scrn-btn" disabled></button>
+        </div>
+
+    </div>
+
+    <div class="vwr ad-plyr">
+
+        <h3>No media</h3>
+        
+        <div class="scrn ad-scrn">
+
+            <img class="tmp-img" src="static/images/open-audio.jpg">
+
+            <img id="audio-img" src="static/images/audio-image.jpg">
+
+            <audio id="audio">
+                <source src="">
+            </audio>
+
+        </div>
+
+        <div class="cntrls ad-cntrls">
+            <button class="fa-solid fa-play cntrl-btns" id="ad-pl-ps-btn" disabled></button>
+            <input class="sk-bar" id="ad-sk" type="range" min="0" max="100" value="0" disabled>
+            <button class="fa-solid fa-volume cntrl-btns" id="ad-vol-btn" disabled></button>
+        </div>
+
+    </div>
+
+    <div class="vwr vd-plyr">
+
+        <h3>No media</h3>
+        
+        <div class="scrn vd-scrn">
+
+            <img class="tmp-img" src="static/images/open-video.jpg">
+
+            <video id="video">
+                <source src="">
+            </video>
+
+        </div>
+
+        <div class="cntrls vd-cntrls">
+            <button class="fa-solid fa-play cntrl-btns" id="vd-pl-ps-btn" disabled></button>
+            <input class="sk-bar" id="vd-sk" type="range" min="0" max="100" value="0" disabled>
+            <button class="fa-solid fa-volume cntrl-btns" id="vd-vol-btn" disabled></button>
+            <button class="fa-solid fa-arrow-up-right-from-square cntrl-btns" id="vd-fl-scrn-btn" disabled></button>
+        </div>
+
+    </div>
+
+    <div class="vwr txt-edtr">
+
+        <h3>No media</h3>
+        
+        <div class="scrn txt-scrn">
+
+            <img class="tmp-img" src="static/images/open-text.jpg">
+
+            <textarea id="text" spellcheck="false"></textarea>
+
+        </div>
+
+        <div class="cntrls txt-cntrls">
+            <button class="fa-solid fa-trash-undo cntrl-btns" id="txt-rst-btn" disabled></button>
+            <button class="fa-solid fa-save cntrl-btns" id="txt-sv-btn" disabled></button>
+        </div>
+
+    </div>
+
+</main>
+
+<div class="tabs">
+    <button class="fa-thin fa-folder-tree" onclick="window.location = '/filemanager'"></button>
+    <button class="fa-thin fa-desktop" onclick="window.location = '/mediaviewer'"></button>
+    <button class="fa-thin fa-gear" onclick="window.location = '/settings'"></button>
+</div>
+
+</body>
+
+<script  type="text/javascript" src="/static/javascript/jquery.js"></script>
+
+<script  type="text/javascript" src="/static/javascript/ext.js"></script>
+
+<script type="text/javascript" src="/static/javascript/mediaviewer.js"></script>
+
+<script type="text/javascript" src="/static/javascript/mediaviewer_utils.js"></script>
+
+</html>

@@ -1,0 +1,25 @@
+{
+    "server": {
+        "HOST": "0.0.0.0",
+        "PORT": 5000,
+        "LOG_PATH": "server_log.log"
+    },
+    "user": {
+        "USERNAME": "username",
+        "PASSWORD_HASH": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+        "SESSION_ID": "ddb0bdc53766436c9f70a22730659d84"
+    },
+    "filemanager": {
+        "PROHIBITED_CHARS": "[\\/:*?\"<>|]",
+        "DIR_SEQUENCE": [
+            "root"
+        ]
+    },
+    "mediaviewer": {
+        "AUDIO": null,
+        "VIDEO": null,
+        "IMAGE": null,
+        "TEXT": null,
+        "OPENED_MEDIA": null
+    }
+}

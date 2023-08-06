@@ -1,0 +1,432 @@
+main{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > nav{
+    width: 93vw;
+    height: 60px;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 1vw 0 1vw;
+    padding: 0 2.5vw 0 2.5vw;
+    position: fixed;
+    top: 0;
+}
+#back{
+    height: 25px;
+    width: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+#crt-fl-fld{
+    display:flex;
+    border-radius:5px;
+    overflow:hidden;
+    gap:1px;
+}
+#crt-fl-fld > button{
+    height: 25px;
+    width: 40px;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#srch-itms{
+    height: 25px;
+    display: flex; 
+    border-radius: 5px; 
+    overflow: hidden;
+}
+#srch-itms > input{
+    height: 25px;
+    width: 80px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#srch-itms > button{
+    height: 25px;
+    width: 25px;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#srch-rslt{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 45px;
+    right: 3.5vw;
+    background-color: #d3d3d3;
+}
+#srch-rslt > p{
+    width: 150px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    justify-content: center;
+    word-break: break-all;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+#srch-rslt > ul{
+    width: 170px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding: 0;
+    margin: 0;
+}
+.fnd-rslt{
+    width: 150px;
+    padding: 1px 10px 4px 10px;
+    margin-top: 1px;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+.fnd-rslt > a{
+    text-decoration: none;
+    word-break: break-all;
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+
+main > input{
+    height: 20px;
+    width: 93vw;
+    background-color: #282828;
+    color: white;
+    border: none;
+    outline: none;
+    border-top: 1px solid #000000;
+    padding: 0 2.5vw 0 2.5vw;
+    font-family: verdana;
+    position: fixed;
+    top: 60px;
+    font-size: 1rem;
+}
+
+#itms{
+    width: 98vw;
+    height: calc(100dvh - 120px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    background-color:#141414;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+.itm-cntnr{
+    width: 93vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2.5vw 0 2.5vw;
+}
+.itm-cntnr > h4{
+    color:#ffffff;
+    background-color:#000000;
+    font-family:Verdana;
+    margin:10px 0 0 0;
+    padding-left:2.5vw;
+}
+.itm-cntnr > div{
+    width: 89vw;
+    min-height: calc(50vh - 110px);
+    padding: 2vw;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(10, calc(90vw / 10));
+
+}
+@media screen and (max-width: 760px){
+
+    .itm-cntnr > div {
+        grid-template-columns: repeat(5, calc(90vw / 5));
+    }
+
+}
+.folder, .file{
+    width: 8vw;
+    min-width: 50px;
+    max-width: 70px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh 0 2vh 0;
+    cursor: pointer;
+}
+.folder > img, .file > img{
+    width: 100%;
+    object-fit: contain;
+}
+.folder > p, .file > p{
+    width: 100%;
+    margin: 0;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    word-break: break-all;
+}
+
+#slct-itms{
+    height: 20px;
+    width: 93vw;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #282828;
+    color: #ffffff;
+    padding: 0 2.5vw 0 2.5vw;
+    border-bottom: 1px solid #000000;
+    position: fixed;
+    bottom: 40px;
+}
+#slct-itms > p{
+    font-family: 'Courier New', Courier;
+    margin:0
+}
+#slct-itms > i{
+    font-size:0.7rem;
+    display:flex;
+    align-items:center;
+    border:none;
+    outline:none;
+    cursor:pointer;
+}
+
+
+
+
+#fl-mnu{
+    width: 300px;
+    max-width: 90vw;
+    background-color: #e1e1e1;
+    display: none; 
+    flex-direction: column; 
+    border-radius: 5px; 
+    overflow: hidden; 
+    gap: 1px;
+    position: fixed;
+    top: 30vh;
+    left: 50vw;
+    transform: translate(-50%, 0);
+}
+#fl-mnu > button{
+    height: 40px;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.fl-mnu-btn > p{
+    margin: 0 auto 0 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+.fl-mnu-btn > i{
+    font-size:0.8rem;
+    margin:0 10% 0 auto;
+}
+
+
+
+
+#upld-mnu{
+    width: 280px;
+    max-width: 90vw;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 30vh;
+    left: 50vw;
+    transform: translate(-50%, 0);
+}
+#upld-fl{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#upld-fl > label{
+    width: 90%;
+    background-color: #282828;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+#upld-inpt{
+    display: none;
+}
+#upld-prgrs{
+    width: 90%;
+    margin-top: 10px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+}
+#upld-prgrs > div{
+    height: 5px;
+    width: 0;
+    max-width: 80%;
+    border-radius: 2px;
+    background-color: #282828;
+}
+#upld-prgrs > p{
+    margin: 0;
+    padding: 0 1% 0 1%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+#upld-mnu > div{
+    max-height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+.upld-dtls{
+    width: 90%;
+    padding: 4px 10px 4px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.upld-dtls > p{
+    margin: 0;
+    word-break: break-all;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+}
+.upld-dtls > p:last-child{
+    text-align: right;
+}
+#upld-mnu > button{
+    width: 70px;
+    height: 30px;
+    margin: 20px 20px 10px auto;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #141414;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+
+
+
+
+#dtls-mnu{
+    max-width: 90vw;
+    background-color: #e1e1e1;
+    display: none; 
+    flex-direction: column;
+    border-radius: 5px; 
+    overflow: hidden;
+    gap: 1px;
+    position: fixed;
+    top: 30vh;
+    left: 50vw;
+    transform: translate(-50%, 0);
+}
+#dtls-mnu > div{
+    display: flex;
+    background-color: #ffffff;
+}
+.dtl{
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+    margin: 0;
+    padding: 0 10px 0 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+.dtl-ttl{
+    width: 100px;
+    max-width: 30vw;
+}
+.dtl-dscrptn{
+    width: 200px;
+    max-width: 60vw;
+}
+
+
+
+
+#cntxt-mnu{
+    width: 160px; 
+    background-color: #e1e1e1;
+    display: none; 
+    flex-direction: column; 
+    border-radius: 5px; 
+    overflow: hidden; 
+    gap: 1px;
+    position: absolute;
+}
+.cntxt-mnu-btn{
+    height: 25px;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.cntxt-mnu-btn:last-child{
+    margin-top: 1px;
+    color: red;
+}
+.cntxt-mnu-btn > p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:0.8rem;
+    margin: 0 auto 0 15px;
+}
+.cntxt-mnu-btn > i{
+    font-size:0.8rem; 
+    margin: 0 15px 0 auto;
+}

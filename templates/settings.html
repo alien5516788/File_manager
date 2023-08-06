@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta lang="en">
+
+<meta name="viewport" content="width: device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/css/font-awesome/css/all.css">
+
+<link rel="stylesheet" href="/static/css/ext.css">
+
+<style>
+
+body{
+    margin: 0;
+    overflow: hidden;
+}
+
+.tabs{
+    width: 98vw;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #282828;
+    position: fixed;
+    bottom: 0;
+    margin: 0 1vw 0 1vw;
+}
+.tabs > button{
+    width: 50px;
+    background-color: #282828;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.tabs > button:hover{
+    color: #000000;
+    background-color: #ffebcd;
+}
+
+main{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > h3 {
+    height:40px; 
+    width: 98vw; 
+    background-color:#282828; 
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main > div{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+.chng-stng{
+    width: 290px;
+    max-width: 90vw;
+    display:flex;
+    gap:10px;
+    justify-content:space-between;
+    margin-top: 30px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.chng-stng > label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+.chng-stng > p{
+    margin: 0;
+    width: 60%;
+    word-wrap: break-word;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+.chng-stng > button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#logout{
+    margin: auto 0 50px 0;
+    background-color: #00000000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page-mask"></div>
+
+<main>
+
+    <h3></h3>
+
+    <div>
+        
+        <div class="chng-stng" id="username">
+            <label>Username</label>
+            <p></p>
+            <button class="fa-regular fa-pen"></button>
+        </div>
+
+        <div class="chng-stng" id="password">
+            <label>Password</label>
+            <p>******</p>
+            <button class="fa-regular fa-pen"></button>
+        </div>
+
+    </div>
+
+    <button id="logout">Logout</button>
+    
+</main>
+
+<div class="tabs">
+    <button class="fa-thin fa-folder-tree" onclick="window.location = '/filemanager'"></button>
+    <button class="fa-thin fa-desktop" onclick="window.location = '/mediaviewer'"></button>
+    <button class="fa-thin fa-gear" onclick="window.location = '/settings'"></button>
+</div>
+
+</body>
+
+<script type="text/javascript" src="/static/javascript/jquery.js"></script>
+
+<script type="text/javascript" src="/static/javascript/ext.js"></script>
+
+<script>
+
+"use strict";
+
+// load settings
+var username = null;
+
+function load_settings(settingInformation = null){
+
+    let settingInfo = null;
+
+    if (settingInformation === null){
+
+        $.ajax({
+            type: 'get',
+            url: "/settings",
+            async : false,
+            data: {
+                "settings" : true
+            },
+            success: function(data){
+
+                settingInfo = data;
+
+            },
+            error: function(error){
+
+                custom_alert("Server error", "error");
+
+            }
+        });
+
+    }else{
+    
+        settingInfo = settingInformation;
+
+    };
+
+    if (Object.keys(settingInfo).includes("alrt")){
+        custom_alert(settingInfo.alrt, settingInfo.alrttyp);
+        return;
+    };
+    
+    // username
+    username = settingInfo.username;
+
+    $("main > h3").html(username);
+    $("#username > p").html(username);
+
+};
+
+$(document).ready(function(){
+
+    load_settings();
+
+    $("#username > button").click(function(){
+
+        let info = {
+            "title" : "Update username",
+            "description" : "enter a username",
+            "value" : username,
+            "closebutton" : "Cancel",
+            "confirmbutton" : "Confirm"
+        };
+
+        custom_prompt(info, "prompt", function(userName){
+
+            $.ajax({
+                type: 'post',
+                url: "/settings",
+                data: {
+                    "updateusername" : true,
+                    "username" : userName
+                },
+                success: function(data){
+
+                    load_settings(data);
+
+                },
+                error: function(error){
+    
+                    custom_alert("Server error", "error");
+
+                }
+            });
+
+        });
+
+    });
+
+    $("#password > button").click(function(){
+
+        let info = {
+            "title" : "Update password",
+            "description" : "enter old password",
+            "value" : "",
+            "closebutton" : "Cancel",
+            "confirmbutton" : "Done"
+        };
+
+        custom_prompt(info, "prompt", function(oldPassword){
+
+            let info = {
+                "title" : "Update password",
+                "description" : "enter new password",
+                "value" : "",
+                "closebutton" : "Cancel",
+                "confirmbutton" : "Confirm"
+            };
+
+            custom_prompt(info, "prompt", function(newPassword){
+                
+                $.ajax({
+                    type: 'post',
+                    url: "/settings",
+                    data: {
+                        "updatepassword" : true,
+                        "oldpassword" : oldPassword,
+                        "newpassword" : newPassword
+                    },
+                    success: function(data){
+
+                        load_settings(data);
+
+                    },
+                    error: function(error){
+        
+                        custom_alert("Server error", "error");
+
+                    }
+                });
+
+            });
+
+        });
+
+    });
+    
+    $("#logout").click(function(){
+
+        document.cookie = "sessionid=null;Path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+        location.reload();
+
+    });
+
+});
+
+</script>
+
+</html>

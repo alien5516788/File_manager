@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta lang="en">
+
+<meta name="viewport" content="width: device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/css/font-awesome/css/all.css">
+
+<link rel="stylesheet" href="/static/css/ext.css">
+
+<link rel="stylesheet" href="/static/css/filemanager.css">
+
+<style>
+
+body{
+    margin: 0;
+    overflow: hidden;
+}
+
+.tabs{
+    width: 98vw;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #282828;
+    position: fixed;
+    bottom: 0;
+    margin: 0 1vw 0 1vw;
+}
+.tabs > button{
+    width: 50px;
+    background-color: #282828;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.tabs > button:hover{
+    color: #000000;
+    background-color: #ffebcd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page-mask"></div>
+
+<main>
+
+    <nav>
+
+        <button id="back" class="fa-regular fa-chevron-left"></button>
+
+        <div id="crt-fl-fld">
+            <button id="fl" class="fa-regular fa-file"></button>
+            <button id="fld" class="fa-regular fa-folder"></button>
+        </div>
+
+        <div id="srch-itms">
+            <input type="text" placeholder="search" autocomplete="off">
+            <button class="fa-regular fa-search" type="button"></button>
+        </div> 
+
+    </nav>
+
+    <input id="adrs-bar" type="text" autocomplete="off" disabled>
+
+    <div id="itms">
+
+        <div class="itm-cntnr">
+            <h4>Folders</h4>
+            <div id="fld-cntnr"></div>
+        </div>
+
+        <div class="itm-cntnr">
+            <h4>Files</h4>
+            <div id="fl-cntnr"></div>
+        </div>
+
+    </div>
+
+    <div id="slct-itms">
+        <p></p>
+        <i class="fa-regular fa-x"></i>
+    </div>
+
+</main>
+
+<div id="srch-rslt">
+    <p></p>
+    <ul></ul>
+</div>
+
+<div id="fl-mnu">
+
+    <button class="fl-mnu-btn" id="crt-fl-btn">
+        <p>Create</p>
+        <i class="fa-regular fa-file-pen"></i>
+    </button>
+
+    <button class="fl-mnu-btn" id="upld-fl-btn">
+        <p style="font-size:0.8rem; margin:0 auto 0 10%;">Upload</p>
+        <i class="fa-regular fa-file-arrow-up" style="font-size:0.8rem; margin:0 10% 0 auto;"></i>
+    </button>
+
+</div>
+
+<div id="upld-mnu">
+
+    <form id="upld-fl" enctype="multipart/form-data">
+        <label for="upld-inpt"><i class="fa-regular fa-arrow-up-from-bracket"></i>&nbsp&nbsp&nbspChoose files to upload</label>
+        <input id="upld-inpt" type="file" name="files">
+        <div id="upld-prgrs">
+            <div></div>
+            <p>0 %</p>
+        </div>
+    </form>
+
+    <div></div>
+
+    <button form="upld-fl" type="submit" disabled>Upload</button>
+
+</div>
+
+<div id="dtls-mnu"></div>
+
+<div id="cntxt-mnu">
+
+    <button class="cntxt-mnu-btn" id="slct-fl-fld-btn">
+        <p>Select</p>
+        <i class="fa-regular fa-circle-check"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="dwnld-fl-fld-btn">
+        <p>Download</p>
+        <i class="fa-regular fa-download"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="cut-fl-fld-btn">
+        <p>Cut</p>
+        <i class="fa-regular fa-scissors"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="cpy-fl-fld-btn">
+        <p>Copy</p>
+        <i class="fa-regular fa-copy"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="pst-fl-fld-btn">
+        <p >Paste</p>
+        <i class="fa-regular fa-paste"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="rnm-fl-fld-btn">
+        <p>Rename</p>
+        <i class="fa-regular fa-circle-info"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="dtls-fl-fld-btn">
+        <p>Details</p>
+        <i class="fa-regular fa-pen"></i>
+    </button>
+
+    <button class="cntxt-mnu-btn" id="dlt-fl-fld-btn">
+        <p>Delete</p>
+        <i class="fa-regular fa-trash-can"></i>
+    </button>
+    
+</div>
+
+<div class="tabs">
+    <button class="fa-thin fa-folder-tree" onclick="window.location = '/filemanager'"></button>
+    <button class="fa-thin fa-desktop" onclick="window.location = '/mediaviewer'"></button>
+    <button class="fa-thin fa-gear" onclick="window.location = '/settings'"></button>
+</div>
+
+</body>
+
+<script type="text/javascript" src="/static/javascript/jquery.js"></script>
+
+<script type="text/javascript" src="/static/javascript/ext.js"></script>
+
+<script type="text/javascript" src="/static/javascript/filemanager.js"></script>
+
+<script type="text/javascript" src="/static/javascript/filemanager_utils.js"></script>
+
+</html>
