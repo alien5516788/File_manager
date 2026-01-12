@@ -18,10 +18,7 @@
     "mediaviewer": {
         "AUDIO": null,
         "VIDEO": null,
-        "IMAGE": {
-            "name": "teslabot.jpg",
-            "source": "root/teslabot.jpg"
-        },
+        "IMAGE": null,
         "TEXT": {
             "name": "welcome.txt",
             "source": "root/welcome.txt"

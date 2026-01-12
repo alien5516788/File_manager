@@ -26,7 +26,7 @@ def list_directory(workingDir):
 
             folders[item] = {
                 "name" : item,
-                "address" : f"{workingDir}/{item}",
+                "address" : f"user/{workingDir}/{item}",
                 "size" : f"{gtSize(workingDir, item)}",
                 "mimetype" : "folder"
             }
@@ -35,7 +35,7 @@ def list_directory(workingDir):
 
             files[item] = {
                 "name" : item,
-                "address" : f"{workingDir}/{item}",
+                "address" : f"user/{workingDir}/{item}",
                 "size" : f"{gtSize(workingDir, item)}",
                 "mimetype" : f"{gtMIME(item)}"
             }

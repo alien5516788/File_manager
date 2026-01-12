@@ -5,7 +5,7 @@ import utils
 def list_media():
 
     image = utils.get_config("mediaviewer", "IMAGE")
-    if (image != None) and (not os.path.isfile("user/" + image.get("source"))):
+    if (image != None) and (not os.path.isfile("../user/" + image.get("source"))):
         utils.set_config("mediaviewer", "IMAGE", None)
 
     audio = utils.get_config("mediaviewer", "AUDIO")
