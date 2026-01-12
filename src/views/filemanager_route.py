@@ -14,7 +14,7 @@ def filemanager():
 
 
     sessionId = request.cookies.get("sessionid")
-    
+            
     if sessionId != utils.get_config("user", "SESSION_ID"):
         return redirect(url_for("login_route.login"))
 

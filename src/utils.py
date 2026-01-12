@@ -7,7 +7,7 @@ import json
 
 def get_config(category, key):
     
-    with open("config.json", "r") as config_file:
+    with open("filemanager.config.json", "r") as config_file:
         config = json.load(config_file)
     
     value = config[category][key]
@@ -16,11 +16,11 @@ def get_config(category, key):
 
 def set_config(category, key, value):
     
-    with open("config.json", "r") as config_file:
+    with open("filemanager.config.json", "r") as config_file:
         config = json.load(config_file)
         config[category][key] = value
 
-    with open("config.json", "w") as config_file:
+    with open("filemanager.config.json", "w") as config_file:
         json.dump(config, config_file, indent = 4)
 
     return True
