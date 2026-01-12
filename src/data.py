@@ -1,8 +1,7 @@
-{
+config = {
     "server": {
-        "HOST": "0.0.0.0",
-        "PORT": 5000,
-        "LOG_PATH": "server_log.log"
+        "ENV": "prod",
+        "SRV_PATH": "../"
     },
     "user": {
         "USERNAME": "username",
@@ -16,13 +15,13 @@
         ]
     },
     "mediaviewer": {
-        "AUDIO": null,
-        "VIDEO": null,
-        "IMAGE": null,
+        "AUDIO": None,
+        "VIDEO": None,
+        "IMAGE": None,
         "TEXT": {
             "name": "welcome.txt",
             "source": "root/welcome.txt"
         },
-        "OPENED_MEDIA": null
+        "OPENED_MEDIA": None
     }
 }

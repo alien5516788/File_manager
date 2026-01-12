@@ -1,5 +1,5 @@
 from werkzeug.utils import secure_filename
-import os, os.path
+import os
 import shutil
 import re
 
@@ -7,9 +7,8 @@ import utils
 
 
 def list_directory(workingDir):
-
+    
     ls = os.listdir(f"user/{workingDir}")
-
     isFile = os.path.isfile
     isDir = os.path.isdir
     gtSize = utils.getSize

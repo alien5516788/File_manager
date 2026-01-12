@@ -3,32 +3,22 @@ from hashlib import sha256
 from uuid import uuid4
 import os
 import mimetypes
-import json
+import data
 
 def get_config(category, key):
     
-    with open("filemanager.config.json", "r") as config_file:
-        config = json.load(config_file)
-    
-    value = config[category][key]
-
-    return value
+    return data.config[category][key]
 
 def set_config(category, key, value):
     
-    with open("filemanager.config.json", "r") as config_file:
-        config = json.load(config_file)
-        config[category][key] = value
-
-    with open("filemanager.config.json", "w") as config_file:
-        json.dump(config, config_file, indent = 4)
-
+    data.config[category][key] = value
+    
     return True
 
 def write_log(message, remark, printMessage = False):
 
     log = f"{time.ctime()} : {str(message)} : {remark}\n"
-    fileName = get_config("server", "LOG_PATH")
+    fileName = get_config("server", "server_log.log")
 
     errLog = open(fileName, "a")
     errLog.write(log)

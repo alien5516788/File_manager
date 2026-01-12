@@ -1,10 +1,21 @@
+import sys
+
 from flask import Flask
 
-from views import login_route, \
-filemanager_route, mediaviewer_route, settings_route, \
-root_route, favicon_route
-
 import utils
+from views import (
+    favicon_route,
+    filemanager_route,
+    login_route,
+    mediaviewer_route,
+    root_route,
+    settings_route,
+)
+
+# environment
+if "--dev" in sys.argv:
+    utils.set_config("server", "ENV", "dev")
+    utils.set_config("server", "SRV_PATH", "")
 
 # app
 app = Flask(__name__)
@@ -24,4 +35,4 @@ app.register_blueprint(favicon_route.favicon_route)
 
 # start server
 if __name__ == "__main__":
-    app.run(host = utils.get_config("server", "HOST"), port = utils.get_config("server", "PORT"))
+    app.run(host="0.0.0.0", port=5000)
