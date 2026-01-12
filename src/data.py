@@ -18,10 +18,7 @@ config = {
         "AUDIO": None,
         "VIDEO": None,
         "IMAGE": None,
-        "TEXT": {
-            "name": "welcome.txt",
-            "source": "root/welcome.txt"
-        },
+        "TEXT": None,
         "OPENED_MEDIA": None
     }
 }
