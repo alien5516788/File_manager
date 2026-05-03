@@ -1,3 +1,8 @@
+⚠️ Archived – Learning/Experimental Project
+
+Built during an earlier exploration phase.
+Left as-is for reference; not actively maintained.
+
 # File Manager
 
 A lightweight, web-based file manager for managing files on a local server through a browser interface. This project provides an intuitive and responsive UI to upload, organize, and manage files without needing to use SSH or command-line tools.
