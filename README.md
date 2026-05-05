@@ -1,7 +1,6 @@
 ⚠️ Archived – Learning/Experimental Project
 
-Built during an earlier exploration phase.
-Left as-is for reference; not actively maintained.
+Uses a tightly coupled older set of web technologies
 
 # File Manager
 
@@ -32,8 +31,10 @@ A lightweight, web-based file manager for managing files on a local server throu
 
 ### Installation
 
+Clone the Repository.
+Then,
+
 ```bash
-git clone https://github.com/alien5516788/File_manager.git
 cd File_manager
 pip install -r requirements.txt
 ```
@@ -60,18 +61,4 @@ gunicorn app:app
 
 ## Security Notes
 
-This project is intended for **personal or educational use**. If deployed to the internet, make sure to:
-
-* Use authentication & HTTPS.
-* Restrict access to trusted users.
-* Configure file permissions properly.
-
----
-
-## Roadmap / Future Enhancements
-
-* ✅ Basic file operations
-* 🔲 Implement multiuser support
-* 🔲 Drag-and-drop file uploads
-* 🔲 Dark mode UI
-* 🔲 Remote server access
+This project is intended for **personal or educational use** only.
